@@ -40,13 +40,13 @@ public class AgropecuaristaController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public Agropecuarista create(@RequestBody Agropecuarista agropecuarista) { 
+    public Agropecuarista cadastroAgropecuarista(@RequestBody Agropecuarista agropecuarista) { 
         log.info("cadastrando agropecuarista {} ", agropecuarista);
         return repository.save(agropecuarista);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Agropecuarista> show(@PathVariable Long id) {
+    public ResponseEntity<Agropecuarista> buscarAgropecuarista(@PathVariable Long id) {
         log.info("buscando agropecuarista por id {}", id);
 
         return repository
@@ -57,15 +57,15 @@ public class AgropecuaristaController {
 
     @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
-    public void destroy(@PathVariable Long id) {
-        log.info("apagando agropecuarista");
+    public void apagarCadastro(@PathVariable Long id) {
+        log.info("apagando  cadastro do agropecuarista");
 
         verificarSeExisteAgropecuarista(id);
         repository.deleteById(id);
     }
 
     @PutMapping("{id}")
-    public Agropecuarista update(@PathVariable Long id, @RequestBody Agropecuarista agropecuarista) {
+    public Agropecuarista editarPerfil(@PathVariable Long id, @RequestBody Agropecuarista agropecuarista) {
         log.info("atualizando agropecuarista com id {} para {}", id, agropecuarista);
 
         verificarSeExisteAgropecuarista(id);

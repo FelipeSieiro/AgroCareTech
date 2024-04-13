@@ -37,14 +37,14 @@ public class ServicoController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Servico create(@RequestBody Servico servico) { 
+    public Servico cadastroServico(@RequestBody Servico servico) { 
         log.info("cadastrando servico {} ", servico);
         repository.save(servico);
         return servico;
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Servico> show(@PathVariable Long id) {
+    public ResponseEntity<Servico> buscarservicos(@PathVariable Long id) {
         log.info("buscando serviço por id {}", id);
 
         return repository
@@ -54,7 +54,7 @@ public class ServicoController {
     }
     
     @DeleteMapping("{id}")
-    public ResponseEntity<Object> destroy(@PathVariable Long id) {
+    public ResponseEntity<Object> cancelarServico(@PathVariable Long id) {
         log.info("apagando serviço");
 
         verificarSeExisteServico(id);
@@ -64,7 +64,7 @@ public class ServicoController {
 
     }
     @PutMapping("{id}")
-    public ResponseEntity<Servico> update(@PathVariable Long id, @RequestBody Servico servico){
+    public ResponseEntity<Servico> editarServico(@PathVariable Long id, @RequestBody Servico servico){
         log.info("atualizando Servico com id {} para {}", id, servico);
         
         verificarSeExisteServico(id);
