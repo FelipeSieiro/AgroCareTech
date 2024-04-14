@@ -28,7 +28,7 @@
 
 ## Vídeo de Apresentação
 
-Assista ao vídeo de apresentação [aqui](https://exemplo.com/video).
+Assista ao vídeo de apresentação [aqui](https://www.youtube.com/watch?v=hIwzqQEHypE).
 
 ## Endpoints da API
 
