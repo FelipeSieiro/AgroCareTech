@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,26 +21,23 @@ public class Veterinario {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "{veterinario.nomeVeterinario.notnull}")
     private String nomeVeterinario;
-    
-    @NotNull
+
+    @NotNull(message = "{veterinario.especializacaoVeterinario.notnull}")
     private String especializacaoVeterinario;
-    
-    @NotBlank
+
+    @NotBlank(message = "{veterinario.telefoneVeterinario.notblank}")
     private String telefoneVeterinario;
 
-    @NotNull
+    @NotNull(message = "{veterinario.emailVeterinario.notnull}")
     private String emailVeterinario;
-    
-    @NotNull
+
+    @NotNull(message = "{veterinario.senhaVeterinario.notnull}")
+    @Size(min = 6, max = 30, message = "{veterinario.senha.size}")
     private String senhaVeterinario;
 
-    @NotNull
+    @NotNull(message = "{veterinario.cmrv.notnull}")
     private String cmrv;
-    
-
-    
-
-    
+        
 }
