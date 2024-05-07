@@ -1,5 +1,7 @@
 package br.com.fiap.plusoft.AgroCareTech.config;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +10,12 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.fiap.plusoft.AgroCareTech.model.Agropecuarista;
 import br.com.fiap.plusoft.AgroCareTech.model.Animal;
+import br.com.fiap.plusoft.AgroCareTech.model.Servico;
+import br.com.fiap.plusoft.AgroCareTech.model.Veterinario;
 import br.com.fiap.plusoft.AgroCareTech.repository.AgropecuaristaRepository;
 import br.com.fiap.plusoft.AgroCareTech.repository.AnimalRepository;
+import br.com.fiap.plusoft.AgroCareTech.repository.ServicoRepository;
+import br.com.fiap.plusoft.AgroCareTech.repository.VeterinarioRepository;
 
 @Configuration
 public class DatabaseSeeder implements CommandLineRunner{
@@ -19,6 +25,12 @@ public class DatabaseSeeder implements CommandLineRunner{
 
     @Autowired
     AgropecuaristaRepository agropecuaristaRepository;
+
+    @Autowired
+    VeterinarioRepository veterinarioRepository;
+
+    @Autowired
+    ServicoRepository servicoRepository;
 
     public void run(String... args) throws Exception {
         agropecuaristaRepository.saveAll(List.of(
@@ -49,8 +61,52 @@ public class DatabaseSeeder implements CommandLineRunner{
             .senhaAgropecuarista("#LuizaAgro789").build()
 
         ));
-animalRepository.saveAll(
-            List.of(
+
+        veterinarioRepository.saveAll(List.of(
+            Veterinario.builder()
+                .id(1L)
+                .nomeVeterinario("Ana Silva")
+                .emailVeterinario("ana@vetfiap.com")
+                .telefoneVeterinario("(33) 1234-5678")
+                .senhaVeterinario("#Ana123Senha")
+                .cmrv("CMRV1234")
+                .especializacaoVeterinario("Dermatologia")
+                .build(),
+
+            Veterinario.builder()
+                .id(2L)
+                .nomeVeterinario("Pedro Oliveira")
+                .emailVeterinario("pedro@vetfiap.com")
+                .telefoneVeterinario("(19) 9876-5432")
+                .senhaVeterinario("#Pedro456Senha")
+                .cmrv("CMRV5678")
+                .especializacaoVeterinario("Dermatologia")
+                .build(),
+
+            Veterinario.builder()
+                .id(3L)
+                .nomeVeterinario("Mariana Santos")
+                .emailVeterinario("mariana@vetfiap.com")
+                .telefoneVeterinario("(13) 1111-2222")
+                .senhaVeterinario("#Mariana789Senha")
+                .cmrv("CMRV91011")
+                .especializacaoVeterinario("Dermatologia")
+                .build(),
+
+            Veterinario.builder()
+                .id(4L)
+                .nomeVeterinario("Lucas Almeida")
+                .emailVeterinario("lucas@vetfiap.com")
+                .telefoneVeterinario("(11) 3333-4444")
+                .senhaVeterinario("#LucasSenha789")
+                .cmrv("CMRV121314")
+                .especializacaoVeterinario("Dermatologia")
+                .build()
+
+
+        ));
+
+            animalRepository.saveAll(List.of(
                 Animal.builder()
                     .id(1L)
                     .nomeAnimal("Mimoso")
@@ -158,6 +214,49 @@ animalRepository.saveAll(
                     .pesoAnimal(360)
                     .agropecuarista(agropecuaristaRepository.findById(4L).get())
                     .build()
+            ));
+
+            servicoRepository.saveAll(List.of(
+                Servico.builder()
+                    .id(1L)
+                    .agropecuarista(agropecuaristaRepository.findById(1L).get())
+                    .animal(animalRepository.findById(1L).get())
+                    .veterinario(veterinarioRepository.findById(1L).get())
+                    .dataServico(LocalDate.now())
+                    .precoServico(new BigDecimal(1600))
+                    .diagnostico("Cancer de pele")
+                    .build(),
+
+                Servico.builder()
+                    .id(2L)
+                    .agropecuarista(agropecuaristaRepository.findById(2L).get())
+                    .animal(animalRepository.findById(2L).get())
+                    .veterinario(veterinarioRepository.findById(2L).get())
+                    .dataServico(LocalDate.now().minusDays(5))
+                    .precoServico(new BigDecimal(1200))
+                    .diagnostico("Dermatite")
+                    .build(),
+            
+                Servico.builder()
+                    .id(3L)
+                    .agropecuarista(agropecuaristaRepository.findById(3L).get())
+                    .animal(animalRepository.findById(3L).get())
+                    .veterinario(veterinarioRepository.findById(3L).get())
+                    .dataServico(LocalDate.now().minusDays(10))
+                    .precoServico(new BigDecimal(1800))
+                    .diagnostico("Micose")
+                    .build(),
+            
+                Servico.builder()
+                    .id(4L)
+                    .agropecuarista(agropecuaristaRepository.findById(4L).get())
+                    .animal(animalRepository.findById(4L).get())
+                    .veterinario(veterinarioRepository.findById(4L).get())
+                    .dataServico(LocalDate.now().minusDays(15))
+                    .precoServico(new BigDecimal(2000))
+                    .diagnostico("Eczema")
+                    .build()
+
             ));
     }
     
