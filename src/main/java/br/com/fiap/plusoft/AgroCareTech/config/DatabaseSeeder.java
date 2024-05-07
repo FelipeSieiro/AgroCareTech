@@ -11,9 +11,8 @@ import br.com.fiap.plusoft.AgroCareTech.model.Animal;
 import br.com.fiap.plusoft.AgroCareTech.repository.AgropecuaristaRepository;
 import br.com.fiap.plusoft.AgroCareTech.repository.AnimalRepository;
 
-
 @Configuration
-public class DatabaseSeeder implements CommandLineRunner {
+public class DatabaseSeeder implements CommandLineRunner{
 
     @Autowired
     AnimalRepository animalRepository;
@@ -21,41 +20,36 @@ public class DatabaseSeeder implements CommandLineRunner {
     @Autowired
     AgropecuaristaRepository agropecuaristaRepository;
 
-    @Override
     public void run(String... args) throws Exception {
         agropecuaristaRepository.saveAll(List.of(
             Agropecuarista.builder()
             .id(1L).nomeAgropecuarista("João Carlos")
-            .cpfAgropecuarista("187.832.570-12")
-            .emailAgropecuarista("joão@fiap.com")
+            .emailAgropecuarista("joao@fiap.com")
             .telefoneAgropecuarista("(84) 3991-7646")
             .senhaAgropecuarista("#jaoDoGado123").build(),
             Agropecuarista.builder()
             .id(2L)
             .nomeAgropecuarista("Maria Silva")
-            .cpfAgropecuarista("238.527.691-45")
             .emailAgropecuarista("maria@fiap.com")
             .telefoneAgropecuarista("(84) 3991-8201")
             .senhaAgropecuarista("#MariaAgro456").build(),
 
-			Agropecuarista.builder()
+            Agropecuarista.builder()
             .id(3L)
             .nomeAgropecuarista("Antônio Oliveira")
-            .cpfAgropecuarista("915.364.227-78")
             .emailAgropecuarista("antonio@fiap.com")
             .telefoneAgropecuarista("(84) 3991-9310")
             .senhaAgropecuarista("#Antonio123").build(),
 
-			Agropecuarista.builder()
+            Agropecuarista.builder()
             .id(4L)
             .nomeAgropecuarista("Luiza Santos")
-            .cpfAgropecuarista("542.819.138-96")
             .emailAgropecuarista("luiza@fiap.com")
             .telefoneAgropecuarista("(84) 3991-7529")
             .senhaAgropecuarista("#LuizaAgro789").build()
-        ));
 
-        animalRepository.saveAll(
+        ));
+animalRepository.saveAll(
             List.of(
                 Animal.builder()
                     .id(1L)
@@ -99,7 +93,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Boi")
                     .idadeAnimal(7)
                     .pesoAnimal(480)
-                    .agropecuarista(agropecuaristaRepository.findById(5L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(1L).get())
                     .build(),
 
                     Animal.builder()
@@ -108,7 +102,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Vaca")
                     .idadeAnimal(6)
                     .pesoAnimal(420)
-                    .agropecuarista(agropecuaristaRepository.findById(6L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(2L).get())
                     .build(),
 
                     Animal.builder()
@@ -117,7 +111,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Boi")
                     .idadeAnimal(8)
                     .pesoAnimal(520)
-                    .agropecuarista(agropecuaristaRepository.findById(7L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(3L).get())
                     .build(),
 
                     Animal.builder()
@@ -126,7 +120,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Vaca")
                     .idadeAnimal(4)
                     .pesoAnimal(380)
-                    .agropecuarista(agropecuaristaRepository.findById(8L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(4L).get())
                     .build(),
 
                     Animal.builder()
@@ -135,7 +129,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Boi")
                     .idadeAnimal(10)
                     .pesoAnimal(600)
-                    .agropecuarista(agropecuaristaRepository.findById(9L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(1L).get())
                     .build(),
 
                     Animal.builder()
@@ -144,7 +138,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Vaca")
                     .idadeAnimal(5)
                     .pesoAnimal(410)
-                    .agropecuarista(agropecuaristaRepository.findById(10L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(2L).get())
                     .build(),
 
                     Animal.builder()
@@ -153,7 +147,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Boi")
                     .idadeAnimal(6)
                     .pesoAnimal(470)
-                    .agropecuarista(agropecuaristaRepository.findById(11L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(3L).get())
                     .build(),
 
                     Animal.builder()
@@ -162,7 +156,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .especieAnimal("Vaca")
                     .idadeAnimal(3)
                     .pesoAnimal(360)
-                    .agropecuarista(agropecuaristaRepository.findById(12L).get())
+                    .agropecuarista(agropecuaristaRepository.findById(4L).get())
                     .build()
             ));
     }

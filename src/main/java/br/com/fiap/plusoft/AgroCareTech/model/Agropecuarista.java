@@ -1,7 +1,5 @@
 package br.com.fiap.plusoft.AgroCareTech.model;
 
-import org.hibernate.validator.constraints.br.CPF;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,8 +23,6 @@ public class Agropecuarista {
     @NotNull
     private String nomeAgropecuarista;
     
-    @CPF
-    private String cpfAgropecuarista;
     
     @NotNull
     private String emailAgropecuarista;
