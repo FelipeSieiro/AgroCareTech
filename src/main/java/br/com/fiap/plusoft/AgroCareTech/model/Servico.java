@@ -3,8 +3,6 @@ package br.com.fiap.plusoft.AgroCareTech.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,7 +27,6 @@ public class Servico {
     private Long id;
 
     @NotNull(message = "{servico.dataServico.notnull}")
-    @JsonFormat(pattern = "dd/mm/yyyy")
     private LocalDate dataServico;
 
     @NotNull(message = "{servico.precoServico.notnull}")
