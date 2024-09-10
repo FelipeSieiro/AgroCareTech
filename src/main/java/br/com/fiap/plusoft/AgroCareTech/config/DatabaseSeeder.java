@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.fiap.plusoft.AgroCareTech.model.Agropecuarista;
-import br.com.fiap.plusoft.AgroCareTech.model.Animal;
-import br.com.fiap.plusoft.AgroCareTech.model.Servico;
-import br.com.fiap.plusoft.AgroCareTech.model.Veterinario;
-import br.com.fiap.plusoft.AgroCareTech.repository.AgropecuaristaRepository;
-import br.com.fiap.plusoft.AgroCareTech.repository.AnimalRepository;
-import br.com.fiap.plusoft.AgroCareTech.repository.ServicoRepository;
-import br.com.fiap.plusoft.AgroCareTech.repository.VeterinarioRepository;
+import br.com.fiap.plusoft.AgroCareTech.agropecuarista.Agropecuarista;
+import br.com.fiap.plusoft.AgroCareTech.animal.Animal;
+import br.com.fiap.plusoft.AgroCareTech.servico.Servico;
+import br.com.fiap.plusoft.AgroCareTech.veterinario.Veterinario;
+import br.com.fiap.plusoft.AgroCareTech.agropecuarista.AgropecuaristaRepository;
+import br.com.fiap.plusoft.AgroCareTech.animal.AnimalRepository;
+import br.com.fiap.plusoft.AgroCareTech.servico.ServicoRepository;
+import br.com.fiap.plusoft.AgroCareTech.veterinario.VeterinarioRepository;
 
 @Configuration
 public class DatabaseSeeder implements CommandLineRunner{

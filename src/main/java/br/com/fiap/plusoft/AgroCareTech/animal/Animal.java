@@ -1,10 +1,7 @@
-package br.com.fiap.plusoft.AgroCareTech.model;
+package br.com.fiap.plusoft.AgroCareTech.animal;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import br.com.fiap.plusoft.AgroCareTech.agropecuarista.Agropecuarista;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
@@ -17,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "animals")
 public class Animal {
     
      @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +30,9 @@ public class Animal {
     private Integer idadeAnimal;
 
     @Positive(message = "{animal.peso.positive}")
-    private Integer pesoAnimal;
+    private Double pesoAnimal;
+
+    private String urlImageAnimal;
 
     @ManyToOne
     private Agropecuarista agropecuarista;

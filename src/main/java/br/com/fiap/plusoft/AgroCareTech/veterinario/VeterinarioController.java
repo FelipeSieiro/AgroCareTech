@@ -1,4 +1,4 @@
-package br.com.fiap.plusoft.AgroCareTech.controller;
+package br.com.fiap.plusoft.AgroCareTech.veterinario;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
@@ -19,35 +19,33 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.plusoft.AgroCareTech.model.Agropecuarista;
-import br.com.fiap.plusoft.AgroCareTech.repository.AgropecuaristaRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("agropecuarista")
+@RequestMapping("veterinario")
 @Slf4j
-public class AgropecuaristaController {
+public class VeterinarioController {
 
     @Autowired
-    AgropecuaristaRepository repository;
+    VeterinarioRepository repository;
 
     
     @GetMapping
-    public List<Agropecuarista> index() {
+    public List<Veterinario> index() {
         return repository.findAll();
     }
     
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public Agropecuarista cadastroAgropecuarista(@RequestBody Agropecuarista agropecuarista) { 
-        log.info("cadastrando agropecuarista {} ", agropecuarista);
-        return repository.save(agropecuarista);
+    public Veterinario cadastroVeterinario(@RequestBody Veterinario veterinario) { 
+        log.info("cadastrando veterinario {} ", veterinario);
+        return repository.save(veterinario);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Agropecuarista> buscarAgropecuarista(@PathVariable Long id) {
-        log.info("buscando agropecuarista por id {}", id);
+    public ResponseEntity<Veterinario> buscarVeterinario(@PathVariable Long id) {
+        log.info("buscando veterinario por id {}", id);
 
         return repository
                 .findById(id)
@@ -58,27 +56,27 @@ public class AgropecuaristaController {
     @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
     public void apagarCadastro(@PathVariable Long id) {
-        log.info("apagando  cadastro do agropecuarista");
+        log.info("apagando  cadastro do veterinario");
 
-        verificarSeExisteAgropecuarista(id);
+        verificarSeExisteVeterinario(id);
         repository.deleteById(id);
     }
 
     @PutMapping("{id}")
-    public Agropecuarista editarPerfil(@PathVariable Long id, @RequestBody Agropecuarista agropecuarista) {
-        log.info("atualizando agropecuarista com id {} para {}", id, agropecuarista);
+    public Veterinario editarPerfil(@PathVariable Long id, @RequestBody Veterinario veterinario) {
+        log.info("atualizando veterinario com id {} para {}", id, veterinario);
 
-        verificarSeExisteAgropecuarista(id);
-        agropecuarista.setId(id);
-        return repository.save(agropecuarista);
+        verificarSeExisteVeterinario(id);
+        veterinario.setId(id);
+        return repository.save(veterinario);
     }
 
-    private void verificarSeExisteAgropecuarista(Long id) {
+    private void verificarSeExisteVeterinario(Long id) {
         repository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
-                        "Não existe agropecuarista com o id informado. Consulte lista em /agropecuarista"));
+                        "Não existe veterinario com o id informado. Consulte lista em /veterinario"));
     }
     
 }

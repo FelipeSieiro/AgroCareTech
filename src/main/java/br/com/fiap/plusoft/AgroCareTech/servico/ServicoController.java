@@ -1,4 +1,4 @@
-package br.com.fiap.plusoft.AgroCareTech.controller;
+package br.com.fiap.plusoft.AgroCareTech.servico;
 
 import java.util.List;
 
@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.fiap.plusoft.AgroCareTech.model.Servico;
-import br.com.fiap.plusoft.AgroCareTech.repository.ServicoRepository;
 import lombok.extern.slf4j.Slf4j;
 
 

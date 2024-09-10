@@ -1,8 +1,11 @@
-package br.com.fiap.plusoft.AgroCareTech.model;
+package br.com.fiap.plusoft.AgroCareTech.servico;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import br.com.fiap.plusoft.AgroCareTech.agropecuarista.Agropecuarista;
+import br.com.fiap.plusoft.AgroCareTech.animal.Animal;
+import br.com.fiap.plusoft.AgroCareTech.veterinario.Veterinario;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

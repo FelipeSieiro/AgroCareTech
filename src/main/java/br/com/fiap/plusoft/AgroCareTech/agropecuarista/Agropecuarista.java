@@ -1,4 +1,4 @@
-package br.com.fiap.plusoft.AgroCareTech.model;
+package br.com.fiap.plusoft.AgroCareTech.agropecuarista;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,8 +1,6 @@
-package br.com.fiap.plusoft.AgroCareTech.repository;
+package br.com.fiap.plusoft.AgroCareTech.veterinario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.fiap.plusoft.AgroCareTech.model.Veterinario;
 
 public interface VeterinarioRepository extends JpaRepository<Veterinario, Long>{
     
