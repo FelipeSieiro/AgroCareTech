@@ -1,7 +1,8 @@
-package br.com.fiap.plusoft.AgroCareTech.domain.veterinario;
+package br.com.fiap.plusoft.AgroCareTech.veterinario;
 
-import br.com.fiap.plusoft.AgroCareTech.domain.user.User;
+import br.com.fiap.plusoft.AgroCareTech.user.User;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,5 +21,8 @@ public class Veterinario  extends User {
 
     @NotNull(message = "{veterinario.cmrv.notnull}")
     private String cmrv;
+
+    @OneToOne
+    User user;
         
 }

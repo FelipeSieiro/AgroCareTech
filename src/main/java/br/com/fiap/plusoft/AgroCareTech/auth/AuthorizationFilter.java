@@ -1,6 +1,6 @@
 package br.com.fiap.plusoft.AgroCareTech.auth;
 
-import br.com.fiap.plusoft.AgroCareTech.domain.user.User;
+import br.com.fiap.plusoft.AgroCareTech.user.User;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
