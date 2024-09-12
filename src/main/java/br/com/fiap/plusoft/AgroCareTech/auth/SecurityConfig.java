@@ -18,7 +18,6 @@ public class SecurityConfig {
         http.authorizeHttpRequests(auth ->
                 auth
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/users/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
                         .requestMatchers(HttpMethod.POST, "/agropecuarista").permitAll()
                         .requestMatchers(HttpMethod.POST, "/veterinario").permitAll()

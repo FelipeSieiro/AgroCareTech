@@ -3,6 +3,7 @@ package br.com.fiap.plusoft.AgroCareTech.auth;
 
 import br.com.fiap.plusoft.AgroCareTech.user.UserRepository;
 import br.com.fiap.plusoft.AgroCareTech.user.User;
+import br.com.fiap.plusoft.AgroCareTech.user.UserRepository;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,9 +28,9 @@ public class TokenService {
         var expiresAt = LocalDateTime.now().plusHours(1).toInstant(ZoneOffset.ofHours(-3));
 
         String token = JWT.create()
-                .withIssuer("sphere")
+                .withIssuer("agrocaretech")
                 .withSubject(user.getEmail())
-                .withClaim("role", "admin")
+                .withClaim("role", user.getRole())
                 .withExpiresAt(expiresAt)
                 .sign(algorithm);
 
@@ -38,7 +39,7 @@ public class TokenService {
 
     public User getUserFromToken(String token) {
         var email =JWT.require(algorithm)
-                .withIssuer("sphere")
+                .withIssuer("agrocaretech")
                 .build()
                 .verify(token)
                 .getSubject();

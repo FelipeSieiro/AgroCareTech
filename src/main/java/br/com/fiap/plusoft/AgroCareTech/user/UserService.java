@@ -1,6 +1,5 @@
 package br.com.fiap.plusoft.AgroCareTech.user;
 
-
 import br.com.fiap.plusoft.AgroCareTech.user.dto.UserProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -90,6 +89,6 @@ public class UserService {
 
 
     public List<User> findByName(String name) {
-        return repository.findByNameContainsIgnoreCase(name);
+        return repository.findByNameContainingIgnoreCase(name);
     }
 }
