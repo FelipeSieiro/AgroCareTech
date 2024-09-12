@@ -1,9 +1,7 @@
 package br.com.fiap.plusoft.AgroCareTech.veterinario;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import br.com.fiap.plusoft.AgroCareTech.user.User;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -19,25 +17,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Veterinario {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    Long id;
+    String especializacaoVeterinario;
+    String cmrv;
 
-    @NotNull(message = "{veterinario.nomeVeterinario.notnull}")
-    private String nomeVeterinario;
-
-    @NotNull(message = "{veterinario.especializacaoVeterinario.notnull}")
-    private String especializacaoVeterinario;
-
-    @NotBlank(message = "{veterinario.telefoneVeterinario.notblank}")
-    private String telefoneVeterinario;
-
-    @NotNull(message = "{veterinario.emailVeterinario.notnull}")
-    private String emailVeterinario;
-
-    @NotNull(message = "{veterinario.senhaVeterinario.notnull}")
-    @Size(min = 6, max = 30, message = "{veterinario.senha.size}")
-    private String senhaVeterinario;
-
-    @NotNull(message = "{veterinario.cmrv.notnull}")
-    private String cmrv;
+    @OneToOne
+    User user;
         
 }
