@@ -22,7 +22,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/agropecuarista").permitAll()
                         .requestMatchers(HttpMethod.POST, "/veterinario").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users/avatar/**").permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
 
         );
         http.addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class);

@@ -1,7 +1,6 @@
 package br.com.fiap.plusoft.AgroCareTech.animal;
 
 import br.com.fiap.plusoft.AgroCareTech.exception.AnimalNotFoundException;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;

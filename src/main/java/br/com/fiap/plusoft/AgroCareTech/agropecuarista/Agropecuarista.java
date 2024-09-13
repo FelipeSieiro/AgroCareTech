@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Agropecuarista {
+public class Agropecuarista extends User {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 

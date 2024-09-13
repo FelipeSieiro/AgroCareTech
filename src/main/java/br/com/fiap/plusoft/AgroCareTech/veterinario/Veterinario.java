@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Veterinario {
+public class Veterinario extends User{
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     String especializacaoVeterinario;
