@@ -19,10 +19,9 @@ public class SecurityConfig {
                 auth
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/agropecuarista").permitAll()
                         .requestMatchers(HttpMethod.POST, "/veterinario").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users/avatar/**").permitAll()
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
 
         );
         http.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()));

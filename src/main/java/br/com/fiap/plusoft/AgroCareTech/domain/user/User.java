@@ -16,10 +16,7 @@ public class User {
     String name;
     String phoneNumber;
     String email;
-
-    @Size(min = 6, max = 30)
     String password;
-
     String avatar;
     String role;
     LocalDateTime createdAt;

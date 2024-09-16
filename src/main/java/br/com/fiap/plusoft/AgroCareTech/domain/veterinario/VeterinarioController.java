@@ -1,5 +1,6 @@
 package br.com.fiap.plusoft.AgroCareTech.domain.veterinario;
 
+import br.com.fiap.plusoft.AgroCareTech.domain.user.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,8 +22,10 @@ public class VeterinarioController {
     VeterinarioRepository repository;
 
     
+
     @GetMapping
-    public List<Veterinario> index() {
+    public List<Veterinario> findAll(@RequestParam(required = false) String name){
+        if (name != null) return repository.findByName(name);
         return repository.findAll();
     }
     

@@ -2,8 +2,8 @@ package br.com.fiap.plusoft.AgroCareTech.domain.servico;
 
 
 
-import br.com.fiap.plusoft.AgroCareTech.domain.agropecuarista.Agropecuarista;
 import br.com.fiap.plusoft.AgroCareTech.domain.animal.Animal;
+import br.com.fiap.plusoft.AgroCareTech.domain.user.User;
 import br.com.fiap.plusoft.AgroCareTech.domain.veterinario.Veterinario;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,7 +23,7 @@ public class Servico {
     private String diagnostico;
     
     @ManyToOne
-    private Agropecuarista agropecuarista;
+    private User user;
 
     @ManyToOne
     private Animal animal;
