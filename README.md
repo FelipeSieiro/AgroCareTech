@@ -29,6 +29,7 @@
 ## Vídeo de Apresentação
 
 Assista ao vídeo de apresentação [aqui](https://www.youtube.com/watch?v=hIwzqQEHypE).
+Assista ao vídeo da solução atualizada [aqui](https://youtu.be/T3mOeUxscIk).
 
 ## Endpoints da API
 
