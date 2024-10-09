@@ -13,11 +13,4 @@ public class AgroCareTechApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AgroCareTechApplication.class, args);
 	}
-
-	@RequestMapping
-	@ResponseBody
-	public String home(){
-		return "Bem vindos ao AgroCare Tech!";
-	}
-
 }
